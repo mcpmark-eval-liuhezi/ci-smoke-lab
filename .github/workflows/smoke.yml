@@ -1,0 +1,13 @@
+name: Smoke Test
+
+on:
+  workflow_dispatch:  # manual trigger only - no push/PR events
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet
+        run: |
+          echo "Hello from the ci-smoke-lab smoke test!"
+          exit 0
