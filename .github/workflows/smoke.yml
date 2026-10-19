@@ -1,19 +1,13 @@
-name: Smoke Test
+name: Smoke
 
 on:
-  workflow_dispatch:  # manual trigger only - no push/PR events
+  workflow_dispatch:
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
     steps:
-      - name: Write one-line smoke report
+      - name: Echo smoke status lines
         run: |
-          echo "CI smoke test OK: ci-smoke-lab manual dispatch completed successfully." > smoke-report.txt
-
-      - name: Upload smoke report artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: smoke-report
-          path: smoke-report.txt
-          if-no-files-found: error
+          echo "Smoke check 1: repository is reachable"
+          echo "Smoke check 2: manual workflow_dispatch executed"
