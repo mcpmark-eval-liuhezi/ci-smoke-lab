@@ -7,7 +7,13 @@ jobs:
   smoke:
     runs-on: ubuntu-latest
     steps:
-      - name: Greet
+      - name: Write one-line smoke report
         run: |
-          echo "Hello from the ci-smoke-lab smoke test!"
-          exit 0
+          echo "CI smoke test OK: ci-smoke-lab manual dispatch completed successfully." > smoke-report.txt
+
+      - name: Upload smoke report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-report
+          path: smoke-report.txt
+          if-no-files-found: error
