@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Write smoke report
-        run: echo "Smoke test passed: CI pipeline executing end to end." > smoke-report.txt
-      - name: Upload smoke report artifact
+        run: echo "Smoke test passed: CI pipeline executing end to end." > demo-build.txt
+      - name: Upload demo-build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: smoke-report
-          path: smoke-report.txt
+          name: demo-build
+          path: demo-build.txt
